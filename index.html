@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>sticky navBar Navigation</title>
+  <title>Sticky NavBar Navigation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,15 +15,16 @@
       <ul>
         <li><a href="#" class="current">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">About</a></li>
         <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <div class="hero">
     <div class="container">
-      <h1>Welcome to My website</h1>
+      <h1 class="typing-effect">Welcome to My Website</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem?</p>
     </div>
   </div>
@@ -31,30 +32,58 @@
   <section class="container content">
     <h2>Content One</h2>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est numquam
-      alias dolorem pariatur iusto porro doloribus sint? Enim deleniti dolore
-      voluptates? Et perferendis laborum consequuntur deserunt consequatur
-      doloremque nulla molestiae adipisci cum voluptatum eos, explicabo hic,
-      alias repellat ipsam officia nesciunt est nostrum dolores sapiente.
-      Animi inventore dolorum praesentium neque sunt, a, porro tempora
-      voluptate corporis ipsa ad, illum assumenda voluptatibus et totam
-      placeat ratione. Cum esse dignissimos eligendi culpa iure expedita
-      dolorem? Beatae nesciunt dicta iure debitis expedita provident, possimus
-      quo quisquam fugiat aliquid saepe voluptatem asperiores porro deserunt
-      dolorem inventore ea recusandae corrupti! Ut delectus hic maiores
-      maxime.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est numquam alias dolorem pariatur iusto porro doloribus
+      sint? Enim deleniti dolore voluptates?
     </p>
-    <h3>Contet Two</h3>
+    <h3>Content Two</h3>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illum odit
-      culpa error sunt exercitationem. Ea itaque, exercitationem aperiam ullam
-      eveniet dolorem quae deleniti nostrum velit esse harum atque earum,
-      molestiae iste quisquam blanditiis quibusdam minus dolor alias maxime
-      quam. Est obcaecati dolores, alias corporis voluptatem doloremque odio
-      porro qui!
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga illum odit culpa error sunt exercitationem. Ea
+      itaque, exercitationem aperiam ullam eveniet dolorem quae deleniti nostrum velit esse harum atque earum.
     </p>
   </section>
+
+  <!-- New Sections -->
+
+  <!-- Testimonials Section -->
+  <section class="container testimonials">
+    <h2>Testimonials</h2>
+    <p>"This website changed my life! The services offered are top-notch and exceeded my expectations." - John Doe</p>
+    <p>"A fantastic experience from start to finish. Highly recommend to anyone looking for quality work." - Jane Smith
+    </p>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="container portfolio">
+    <h2>Portfolio</h2>
+    <div class="portfolio-item">
+      <img src="Snapinsta.app_413325243_1306015793431239_5011594010119427405_n_1080.jpg" alt="Project 1">
+      <p>Project 1: A website redesign for a local business, resulting in a 50% increase in traffic.</p>
+    </div>
+    <div class="portfolio-item">
+      <img src="Screenshot_2024-03-06-05-36-41-22_99c04817c0de5652397fc8b56c3b3817.jpg" alt="Project 2">
+      <p>Project 2: Developed a custom e-commerce platform that streamlined sales processes.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="container contact">
+    <h2>Contact</h2>
+    <p>If you have any questions or would like to work with us, please feel free to reach out!</p>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 </body>
+
 <script>
   const nav = document.querySelector('.nav');
   const navTop = nav.offsetTop;
@@ -68,6 +97,39 @@
   }
 
   window.addEventListener('scroll', stickyNav)
+
+  const textArray = ["Welcome to My Website  ", "Enjoy Your Stay!  ", "Discover Amazing Content  "];
+
+  let currentIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 125;
+  const deletingSpeed = 40;
+  const pauseDuration = 500;
+
+  function typeEffect() {
+    const typingElement = document.querySelector('.typing-effect');
+    const currentText = textArray[currentIndex];
+
+    if (isDeleting) {
+      typingElement.textContent = currentText.substring(0, charIndex--);
+    } else {
+      typingElement.textContent = currentText.substring(0, charIndex++);
+    }
+
+    if (!isDeleting && charIndex === currentText.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, pauseDuration);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      currentIndex = (currentIndex + 1) % textArray.length;
+      setTimeout(typeEffect, typingSpeed);
+    } else {
+      setTimeout(typeEffect, isDeleting ? deletingSpeed : typingSpeed);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', typeEffect);
 
 </script>
 
