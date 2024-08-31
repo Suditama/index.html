@@ -15,19 +15,42 @@
       <ul>
         <li><a href="#" class="current">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
         <li><a href="#">Portfolio</a></li>
         <li><a href="#">Contact</a></li>
+        <li><a href="#">Testimonials</a></li>
       </ul>
     </div>
   </nav>
 
-  <div class="hero">
+  <div class="transparent">
+    <div class="parallax"></div>
+  </div>
+
+    <div class="hero">
     <div class="container">
       <h1 class="typing-effect">Welcome to My Website</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quidem?</p>
     </div>
   </div>
+
+  <section class="page chef">
+    <div class="details">
+    </div>
+    <div class="hero" id="model">
+      <img
+        class="model-left"
+        src="0 (1).jpg"
+        alt="model"
+      />
+      <img
+        class="model-right"
+        src="1 (1).jpg"
+        alt="model"
+      />
+    </div>
+  </section>
+
+
 
   <section class="container content">
     <h2>Content One</h2>
@@ -60,26 +83,26 @@
       <p>Project 1: A website redesign for a local business, resulting in a 50% increase in traffic.</p>
     </div>
     <div class="portfolio-item">
-      <img src="Screenshot_2024-03-06-05-36-41-22_99c04817c0de5652397fc8b56c3b3817.jpg" alt="Project 2">
+      <img src="438840640_800454218675973_9070732810071874598_n.jpg" alt="Project 2">
       <p>Project 2: Developed a custom e-commerce platform that streamlined sales processes.</p>
     </div>
   </section>
 
   <!-- Contact Section -->
   <section class="container contact">
-    <h2>Contact</h2>
+    <h2>Contact Me</h2>
     <p>If you have any questions or would like to work with us, please feel free to reach out!</p>
     <form>
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" class="required" placeholder="Enter your Name" name="name" required>
 
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" class="required" placeholder="Enter your email" name="email" required>
 
       <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
+      <textarea id="message" name="message" class="required" placeholder="Type your message here" rows="4" required></textarea>
 
-      <button type="submit">Send Message</button>
+      <button class="disabled" type="submit">Send Message</button>
     </form>
   </section>
 </body>
@@ -99,6 +122,7 @@
   window.addEventListener('scroll', stickyNav)
 
   const textArray = ["Welcome to My Website  ", "Enjoy Your Stay!  ", "Discover Amazing Content  "];
+
 
   let currentIndex = 0;
   let charIndex = 0;
